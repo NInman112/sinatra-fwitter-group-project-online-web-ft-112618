@@ -19,7 +19,6 @@ class TweetsController < ApplicationController
 
   post '/tweets/new' do
     if is_logged_in?(session) && params[:content] != ""
-      #binding.pry
       @tweet = Tweet.new(:content => params[:content], :user_id => session[:user_id])
       @tweet.save
       redirect '/tweets'
